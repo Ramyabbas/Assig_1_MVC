@@ -17,15 +17,6 @@ namespace Assigement_MVC.Data
         {
         }
 
-
-        protected override void OnConfiguring (DbContextOptionsBuilder optionsBuilder)
-        {
-            if (!optionsBuilder.IsConfigured)
-            {
-                optionsBuilder.UseSqlServer("Server=LAPTOP-6LJEETE9\\MASTER;Database=Resturant;Trusted_Connection=True;");
-            }
-        }
-
         public DbSet<ProductCategory> ProductCategories { get; set; }
         public DbSet<Product> Products { get; set; }
     }
