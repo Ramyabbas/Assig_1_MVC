@@ -1,0 +1,47 @@
+﻿@using System.Collections.Specialized
+@model Assigement_MVC.ViewModels.CategoryIndexViewModel
+
+@{
+    ViewData["Title"] = "Kategori";
+}
+<h1>@ViewData["Kategori"]</h1>
+<div class="card-body">
+    <form method="get" class="example" asp-controller="Category" asp-action="Index" style="margin:auto;max-width:300px; margin-bottom:40px;">
+        <input type="text" placeholder="Sök.." asp-for="p">
+        <button type="submit"><i class="fa fa-search"></i>Sök</button>
+    </form>
+</div>
+<div class="card-body">
+    <form method="get" class="example" asp-controller="Category" asp-action="New" style="margin-left:70px;  max-width:700px; margin-bottom:40px;">
+        <button asp-controller="Category" asp-action="New" style="background-color:orangered;" type="submit" class="btn btn-primary">Ny kategori</button>
+    </form>
+</div>
+
+
+<div>
+    <h2 class="text-center" style="font-family: verdana;">Våra kategorier</h2>
+</div>
+<div class="content">
+    <table style="margin-bottom:50px;">
+        <tr>
+            <th>Namn</th>
+            <th></th>
+            <th></th>
+        </tr>
+        @foreach (var i in Model.Cateories)
+        {
+            <tr>
+                <td><h5>@i.Name</h5></td>
+                <td><a style="text-align:right" class="nav-link text-dark" asp-area="" asp-controller="Category" asp-action="SelectedCategory" asp-route-id="@i.Id">Visa @i.Name maträtter</a></td>
+                <td><a asp-controller="Category" asp-action="Edit" asp-route-Id="@i.Id" style="text-align:right" class="nav-link text-dark" role="button" aria-pressed="true">Ändra</a></td>
+
+            </tr>
+
+        }
+
+    </table>
+
+
+
+
+</div>>

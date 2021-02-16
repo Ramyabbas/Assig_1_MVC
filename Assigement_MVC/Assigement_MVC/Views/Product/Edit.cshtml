@@ -1,0 +1,41 @@
+﻿@model Assigement_MVC.ViewModels.PorductEditViewModel
+@{
+    ViewData["Title"] = "Edit Category";
+}
+
+
+<div class="card-body">
+    <h2 class="text-center" style="font-family: verdana;">Ändra Maträtt</h2>
+</div>
+
+
+<section>
+    <div class="content">
+
+        <form method="post" asp-controller="Product" asp-action="Edit">
+            <div>
+                <label style="text-align:left" asp-for="Name">Namn</label>
+                <input class="form-control" asp-for="Name">
+                <span asp-validation-for="Name" class="field-validation-error"></span>
+            </div>
+
+            <div>
+                <label style="text-align:left"  asp-for="Price">Pris</label>
+                <input class="form-control" asp-for="Price">
+                <span asp-validation-for="Price" class="field-validation-error"></span>
+            </div>
+
+            <div>
+                <label style="text-align:left" asp-for="Description">Beskrivning</label>
+                <input class="form-control" asp-for="Description">
+                <span asp-validation-for="Description" class="field-validation-error"></span>
+            </div>
+
+
+
+
+            <button style="margin-top:10px; background-color:orangered" type="submit" class="btn btn-primary">Spara ändringen</button>
+
+        </form>
+    </div>
+</section>

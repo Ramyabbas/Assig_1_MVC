@@ -1,0 +1,46 @@
+﻿@using System.Collections.Specialized
+@model Assigement_MVC.ViewModels.SelectedCategoryViewModell
+@{
+    ViewData["Title"] = "Vald kategori";
+}
+<h1>@ViewData["Vald kategori"]</h1>
+<section class="py-5">
+    <div class="card-body">
+        <form method="get" class="example" asp-controller="Category" asp-action="SelectedCategory" style="margin:auto;max-width:300px; margin-bottom:40px;">
+            <input type="text" placeholder="Sök.." asp-for="p">
+            <button type="submit"><i class="fa fa-search"></i>Sök</button>
+        </form>
+    </div>
+
+    <div class="card-body">
+        <form method="get" class="example" asp-controller="Category" asp-action="New" style="margin-left:70px;  max-width:700px; margin-bottom:40px;">
+            <button asp-controller="Product" asp-action="New" style="background-color:orangered;" type="submit" class="btn btn-primary">Ny maträtt</button>
+        </form>
+    </div>
+
+    <div class="content">
+
+        <table style="margin-bottom:50px;">
+            <tr>
+                <th>Namn</th>
+                <th>Pris</th>
+                <th>Beskrivning</th>
+                <th>Kategori</th>
+            </tr>
+            @foreach (var i in Model.products)
+            {
+                <tr>
+                    <td>@i.Name </td>
+                    <td>@i.Price kr</td>
+                    <td>@i.Description </td>
+                    <td><a class="nav-link text-dark" style="text-align:left" asp-area="" asp-controller="Category" asp-action="SelectedCategory" asp-route-id="@i.CategoryId.Id">@i.CategoryName</a></td>
+                    <td><a asp-controller="Product" asp-action="Edit" asp-route-Id="@i.Id" class="nav-link text-dark" role="button" aria-pressed="true">Ändra</a></td>
+
+                </tr>
+
+
+            }
+        </table>
+
+    </div>
+</section>

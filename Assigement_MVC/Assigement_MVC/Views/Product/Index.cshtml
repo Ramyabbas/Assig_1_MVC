@@ -1,0 +1,41 @@
+﻿@using System.Collections.Specialized
+@model Assigement_MVC.ViewModels.ProductIndexViewmodell
+@{
+    ViewData["Title"] = "Produkter";
+}
+<h1>@ViewData["Produkter"]</h1>
+<div class="card-body">
+    <form method="get" class="example" asp-controller="Product" asp-action="Index" style="margin:auto;max-width:300px; margin-bottom:40px;">
+        <input type="text" placeholder="Sök.." asp-for="p">
+        <button type="submit"><i class="fa fa-search"></i>Sök</button>
+    </form>
+</div>
+
+<div class="card-body">
+    <form method="get" class="example" asp-controller="Category" asp-action="New" style="margin-left:70px;  max-width:700px; margin-bottom:40px;">
+        <button asp-controller="Product" asp-action="New" style="background-color:orangered;" type="submit" class="btn btn-primary">Ny maträtt</button>
+    </form>
+</div>
+
+<div class="content">
+    <table style="margin-bottom:50px;">
+        <tr>
+            <th>Namn</th>
+            <th>Pris</th>
+            <th>Beskrivning</th>
+        </tr>
+        @foreach (var i in Model.products)
+        {
+    <tr>
+        <td>@i.Name </td>
+        <td>@i.Price kr</td>
+        <td>@i.Description </td>
+        <td><a asp-controller="Product" asp-action="Edit" asp-route-Id="@i.Id" class="nav-link text-dark" role="button" aria-pressed="true">Ändra</a></td>
+
+    </tr>
+
+        }
+
+
+    </table>
+</div>

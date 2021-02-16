@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Assigement_MVC</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index" style="font-family: 'Indie Flower', cursive; background-color: orangered; border-radius: 15px 50px 30px 5px">Al-Furat Restaurang</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                    <partial name="_LoginPartial" />
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item" style="font-family: 'Oswald', sans-serif; color:black;">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Startsida</a>
+                        </li>
+                        <li class="nav-item" style="font-family: 'Oswald', sans-serif; color:black;">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Category" asp-action="Index">Kateogri</a>
+                        </li>
+                        <li class="nav-item" style="font-family: 'Oswald', sans-serif; color:black;">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Product" asp-action="Index">Maträtter</a>
+                        </li>
+                        <li class="nav-item" style="font-family: 'Oswald', sans-serif; color:black;">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Contact">Kontakta oss</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted" style="background-color:orangered;">
+        <div class="container" style="color:black;">
+            &copy; 2021 - Al-Furat Restaurang - <a asp-area="" asp-controller="Home" asp-action="Contact">Kontakta oss</a>
+        </div>
+    </footer>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="~/vendor/popper.js/umd/popper.min.js"></script>
+    <script src="~/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="~/vendor/jquery.cookie/jquery.cookie.js"></script>
+    <script src="~/vendor/chart.js/Chart.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+    <script src="~/js/charts-home.js"></script>
+    <script src="~/js/front.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
